@@ -10,15 +10,24 @@
   </head>
 
   <body>
-  <nav>
+  <div id="nav-bar" class="nav-bar-menu">
+    <h2>Placeholder Title</h2>
     <% if logged_in? %>
-      <%= current_user.username %>
-      <%= link_to "Log out", logout_path, method: :delete %>
+      <p class="nav-bar-menu-actions">
+        <%= current_user.username %>
+      </p>
+      <p class="nav-bar-menu-actions">
+        <%= link_to "Log out", logout_path, method: :delete %>
+      </p>
     <% else %>
-      <%= link_to "Login", new_session_path%>
-      <%= link_to "Sign up!", new_user_path%>
+      <p class="nav-bar-menu-actions">
+        <%= link_to "Login", new_session_path%>
+      </p>
+      <p class="nav-bar-menu-actions">
+        <%= link_to "Sign up!", new_user_path%>
+      </p>
     <% end %>
-  </nav>
+</div>
     <%= yield %>
   </body>
 </html>
