@@ -1,0 +1,18 @@
+<h1>Sessions#new</h1>
+<p>Find me in app/views/sessions/new.html.erb</p>
+
+<% if flash[:danger] %>
+  <p><%= flash[:danger] %></p>
+<% end %>
+
+<%= simple_form_for(:session, url: login_path) do |f| %>
+  <div class="control">
+    <%= f.input :username,
+                wrapper: false,
+                autofocus: true,
+                required: true
+                %>
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
