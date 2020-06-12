@@ -3,6 +3,7 @@
 <h2>Events hosted:</h2>
 <div class="event-list">
   <% @user.events.each do |event| %>
+    <h3><%= event.title %></h3>
     Date:        <%= event.date %><br>
     Location:    <%= event.location %><br>
     Description: <%= event.description %><br>
