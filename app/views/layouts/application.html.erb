@@ -19,6 +19,9 @@
       <p class="nav-bar-menu-actions">
         <%= link_to "Log out", logout_path, method: :delete %>
       </p>
+      <p>
+        <%= link_to "Make an event!", new_event_path %>
+      </p>
     <% else %>
       <p class="nav-bar-menu-actions">
         <%= link_to "Login", new_session_path%>
