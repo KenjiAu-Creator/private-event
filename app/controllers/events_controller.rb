@@ -75,4 +75,20 @@ class EventsController < ApplicationController
       #params.fetch(:event, {})
       params.require(:event).permit(:title, :location, :date, :description)
     end
+
+    def upcoming_events
+      current_date = Date.current
+      @upcoming_events = []
+      Event.find_each do |event|
+        if event.date.to_date > current_date
+          @upcoming_events.push(event)
+        end
+      end
+      return @upcoming_events
+    end
+  
+    def past_events
+      current_date = Date.current
+  
+    end
 end
