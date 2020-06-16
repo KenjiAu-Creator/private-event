@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Events hosted:</h2>
+<h2>Events hosted by <%= @user.username %>:</h2>
 <div class="event-list">
   <% @user.events.each do |event| %>
     <h3><%= event.title %></h3>
@@ -9,6 +9,10 @@
     Description: <%= event.description %><br>
     <%= link_to "test", event_path((event.id)) %>
   <% end %>
+  <h2>Events attended:</h2>
+    <% @user.attended_events.each do |event| %>
+      <h3><%= event.title %></h3>
+    <% end %>
 </div>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

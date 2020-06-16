@@ -1,10 +1,26 @@
 <p id="notice"><%= notice %></p>
+<% flash.each do |msg| %>
+  <%= msg %>
+<% end %>
 
 <h1><%= @event.title %></h1>
 Event Host: <%= User.find_by(id: @event.creator_id).username %><br>
 Date:       <%= @event.date %><br>
 Location:   <%= @event.location %><br>
 Description:<%= @event.description%><br>
+
+<h2> Users attending this event:</h2>
+<% @event.attendees.each do |user| %>
+  <p><%= user.username %></p>
+<% end %>
+
+<% if logged_in? %>
+  <%= form_with(url: "/invitations", method: "post") do %>
+    <%= hidden_field_tag(:user_id, current_user.id) %>
+    <%= hidden_field_tag(:event_id, @event.id) %>
+    <%= submit_tag("Sign up!") %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
