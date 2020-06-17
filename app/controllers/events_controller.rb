@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.all
+    @up_events = upcoming_events
+    @past_events = past_events
   end
 
   # GET /events/1
@@ -78,17 +80,23 @@ class EventsController < ApplicationController
 
     def upcoming_events
       current_date = Date.current
-      @upcoming_events = []
+      upcoming_events = []
       Event.find_each do |event|
         if event.date.to_date > current_date
-          @upcoming_events.push(event)
+          upcoming_events.push(event)
         end
       end
-      return @upcoming_events
+      return upcoming_events
     end
   
     def past_events
       current_date = Date.current
-  
+      p_events = []
+      Event.find_each do |event|
+        if event.date.to_date < current_date
+          p_events.push(event)
+        end
+      end
+      return p_events
     end
 end
