@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    
+    @upcoming_events = upcoming_attend_events
+    @past_events = previous_attend_events
   end
 
   # GET /users/new
@@ -75,5 +76,33 @@ class UsersController < ApplicationController
     def user_params
       #params.fetch(:user, {})
       params.require(:user).permit(:username)
+    end
+
+    def upcoming_attend_events
+      # Pulls events from the Users attending model and then compares the date to the current date.
+      current_date = Date.current
+      upcoming_events = []
+      current_user = User.find(params[:id])
+
+      current_user.attended_events.each do |event|
+        if event.date.to_date > current_date
+          upcoming_events.push(event)
+        end
+      end
+      return upcoming_events
+    end
+  
+    def previous_attend_events
+      # Pulls events from the Users attending model and then compares the date to the current date.
+      current_date = Date.current
+      current_user = User.find(params[:id])
+      past_events = []
+      
+      current_user.attended_events.each do |event|
+        if event.date.to_date < current_date
+          past_events.push(event)
+        end
+      end
+      return past_events
     end
 end

@@ -10,8 +10,13 @@
     <%= link_to "test", event_path((event.id)) %>
   <% end %>
 
-  <h2>Events attended:</h2>
-    <% @user.attended_events.each do |event| %>
+  <h2> Upcoming Eventings attending</h2>
+    <% @upcoming_events.each do |event| %>
+      <h3><%= event.title %></h3>
+    <% end %>
+
+  <h2>Previously Events attended:</h2>
+    <% @past_events.each do |event| %>
       <h3><%= event.title %></h3>
     <% end %>
 </div>
