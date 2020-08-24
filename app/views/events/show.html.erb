@@ -2,25 +2,49 @@
 <% flash.each do |msg| %>
   <%= msg %>
 <% end %>
+<main>
+  <section id="Header">
+    <h1 id="title">Private Event!</h1>
+  </section>
 
-<h1><%= @event.title %></h1>
-Event Host: <%= User.find_by(id: @event.creator_id).username %><br>
-Date:       <%= @event.date %><br>
-Location:   <%= @event.location %><br>
-Description:<%= @event.description%><br>
+  <section class="event-info">
+  <h1><%= @event.title %></h1>
+    <table>
+      <tr>
+        <td>Event Host:</td>
+        <td><%= User.find_by(id: @event.creator_id).username %></td>
+      </tr>
+      <tr>
+        <td>Date:</td>
+        <td><%= @event.date %></td>
+      </tr>
+      <tr>
+        <td>Location:</td>
+        <td><%= @event.location %></td>
+      </tr>
+    </table>
+  </section>
+  <section class="description">
+    <h2>Description:</h2>
+    <p><%= @event.description %><p>
+  </section>
 
-<h2> Users attending this event:</h2>
-<% @event.attendees.each do |user| %>
-  <p><%= user.username %></p>
-<% end %>
+  <Section class="attendee-info">
+    <h2> Users attending this event:</h2>
+    <% @event.attendees.each do |user| %>
+      <p><%= user.username %></p>
+    <% end %>
 
-<% if logged_in? %>
-  <%= form_with(url: "/invitations", method: "post") do %>
-    <%= hidden_field_tag(:user_id, current_user.id) %>
-    <%= hidden_field_tag(:event_id, @event.id) %>
-    <%= submit_tag("Sign up!") %>
-  <% end %>
-<% end %>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+    <% if logged_in? %>
+      <%= form_with(url: "/invitations", method: "post") do %>
+        <%= hidden_field_tag(:user_id, current_user.id) %>
+        <%= hidden_field_tag(:event_id, @event.id) %>
+        <%= submit_tag("Sign up!") %>
+      <% end %>
+    <% end %>
+  </section>
+  <section class="links">
+    <%= link_to 'Edit', edit_event_path(@event) %> |
+    <%= link_to 'Back', events_path %>
+  </section>
+</main>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PE2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    "eventShow" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="nav-bar-menu">
+      <h2>Private Event Planner!</h2>
+      <ul>
+        <% if logged_in? %>
+          <li><%= current_user.username %></li>
+          <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <li><%= link_to "Make an event!", new_event_path %></li>
+        <% else %>
+          <li><%= link_to "Login", new_session_path%></li>
+          <li><%= link_to "Sign up!", new_user_path%></li>
+        <% end %>
+      </ul>
+      <%= yield %>
+    </nav>
+  </body>
+</html>
