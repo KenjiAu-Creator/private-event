@@ -10,6 +10,31 @@
   </head>
 
   <body>
+    <div class="menu-wrap">
+      <input type="checkbox" class="toggler">
+      <div class="hamburger">
+        <div>
+        </div>
+      </div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <% if logged_in? %>
+                <li><%= current_user.username %></li>
+                <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                <li><%= link_to "Make an event!", new_event_path %></li>
+              <% else %>
+                <li><%= link_to "Login", new_session_path%></li>
+                <li><%= link_to "Sign up!", new_user_path%></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
   <div id="nav-bar" class="nav-bar-menu">
     <h2>Private Event Planner!</h2>
     <% if logged_in? %>
