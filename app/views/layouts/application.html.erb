@@ -33,29 +33,6 @@
         </div>
       </div>
     </div>
-
-    
-  <div id="nav-bar" class="nav-bar-menu">
-    <h2>Private Event Planner!</h2>
-    <% if logged_in? %>
-      <p class="nav-bar-menu-actions">
-        <%= current_user.username %>
-      </p>
-      <p class="nav-bar-menu-actions">
-        <%= link_to "Log out", logout_path, method: :delete %>
-      </p>
-      <p>
-        <%= link_to "Make an event!", new_event_path %>
-      </p>
-    <% else %>
-      <p class="nav-bar-menu-actions">
-        <%= link_to "Login", new_session_path%>
-      </p>
-      <p class="nav-bar-menu-actions">
-        <%= link_to "Sign up!", new_user_path%>
-      </p>
-    <% end %>
-</div>
     <%= yield %>
   </body>
 </html>

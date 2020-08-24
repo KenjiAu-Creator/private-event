@@ -3,32 +3,6 @@
   <%= msg %>
 <% end %>
 <main>
-   <div class="menu-wrap">
-      <input type="checkbox" class="toggler">
-      <div class="hamburger">
-        <div>
-        </div>
-      </div>
-      <div class="menu">
-        <div>
-          <div>
-            <ul>
-              <% if logged_in? %>
-                <li><%= current_user.username %></li>
-                <li><%= link_to "Log out", logout_path, method: :delete %></li>
-                <li><%= link_to "Make an event!", new_event_path %></li>
-                <li><%= link_to 'Back to Events', events_path %></li>
-              <% else %>
-                <li><%= link_to "Login", new_session_path%></li>
-                <li><%= link_to "Sign up!", new_user_path%></li>
-                <li><%= link_to 'Back to Events', events_path %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
   <section id="Header">
     <h1 id="webName">Private Event!</h1>
     <h2 id="sub">You're invited!</h2>
@@ -65,7 +39,7 @@
       <p><%= user.username %></p>
     <% end %>
 
-    <% if logged_in? %>
+    <% if logged_in? && @event.date.to_date > Date.current %>
       <%= form_with(url: "/invitations", method: "post") do %>
         <%= hidden_field_tag(:user_id, current_user.id) %>
         <%= hidden_field_tag(:event_id, @event.id) %>
