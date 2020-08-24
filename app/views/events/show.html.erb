@@ -24,8 +24,10 @@
         <td><%= @event.location %></td>
       </tr>
     </table>
-    <% if @event.creator_id == current_user.id %>
-      <%= link_to 'Edit Event', edit_event_path(@event) %>
+    <% if logged_in? %>
+      <% if @event.creator_id == current_user.id %>
+        <%= link_to 'Edit Event', edit_event_path(@event) %>
+      <% end %>
     <% end %>
   </section>
   <section class="description">

@@ -27,7 +27,7 @@
 
 <h1>Upcoming Events</h1>
 <% @up_events.each do | event | %>
-  <%= event.title %><br>
+  <%= link_to "#{event.title}", event %><br>
   <%= event.location %><br>
   <%= event.date %><br>
   -----------------------------------------------------
