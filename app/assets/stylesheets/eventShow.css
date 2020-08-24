@@ -9,7 +9,7 @@ html {
 /* Main css */
 
 body {
-    background-image: url("https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+    background-image: url("https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-size: 100% 50%;
     background-repeat: no-repeat;
     background-position: center top;
@@ -37,10 +37,11 @@ main {
 #Header {
     text-align: center;
     grid-area: header;
+    color: white;
 }
 .event-info {
     grid-area: info;
-    margin-left: 150px;
+    margin-left: 200px;
 }
 .attendee-info {
   grid-area: attendee;
@@ -52,14 +53,16 @@ main {
 
 .description {
     grid-area: description;
-    margin-left: 150px;
+    margin-left: 200px;
 }
 section h1 {
     font-size: 40px;
     padding: 0;
     margin: 0;
 }
+#sub {
+    margin-top: 0;
+}
 #webName {
     font-size: 55px;
-    color: white;
 }
