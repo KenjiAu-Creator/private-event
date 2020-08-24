@@ -11,19 +11,6 @@
   </head>
 
   <body>
-    <nav class="nav-bar-menu">
-      <h2>Private Event Planner!</h2>
-      <ul>
-        <% if logged_in? %>
-          <li><%= current_user.username %></li>
-          <li><%= link_to "Log out", logout_path, method: :delete %></li>
-          <li><%= link_to "Make an event!", new_event_path %></li>
-        <% else %>
-          <li><%= link_to "Login", new_session_path%></li>
-          <li><%= link_to "Sign up!", new_user_path%></li>
-        <% end %>
-      </ul>
-      <%= yield %>
-    </nav>
+    <%= yield %>
   </body>
 </html>

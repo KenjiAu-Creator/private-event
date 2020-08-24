@@ -3,6 +3,32 @@
   <%= msg %>
 <% end %>
 <main>
+   <div class="menu-wrap">
+      <input type="checkbox" class="toggler">
+      <div class="hamburger">
+        <div>
+        </div>
+      </div>
+      <div class="menu">
+        <div>
+          <div>
+            <ul>
+              <% if logged_in? %>
+                <li><%= current_user.username %></li>
+                <li><%= link_to "Log out", logout_path, method: :delete %></li>
+                <li><%= link_to "Make an event!", new_event_path %></li>
+                <li><%= link_to 'Back to Events', events_path %></li>
+              <% else %>
+                <li><%= link_to "Login", new_session_path%></li>
+                <li><%= link_to "Sign up!", new_user_path%></li>
+                <li><%= link_to 'Back to Events', events_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
   <section id="Header">
     <h1 id="webName">Private Event!</h1>
     <h2 id="sub">You're invited!</h2>
@@ -46,8 +72,5 @@
         <%= submit_tag("Sign up!") %>
       <% end %>
     <% end %>
-  </section>
-  <section class="links">
-    <%= link_to 'Back', events_path %>
   </section>
 </main>
