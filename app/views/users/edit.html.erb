@@ -1,6 +1,13 @@
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<main>
+  <section class="photo">
+    <%= image_tag("City6.jpeg") %>
+  </section>
+  <section class="users">
+    <h1>Editing User</h1>
+    <%= render 'form', user: @user %>
+  </section>
+<section class="main links">
+  <%= link_to 'Show', @user %> |
+  <%= link_to 'Back', users_path %>
+</section>
+</main>
