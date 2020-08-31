@@ -1,7 +1,6 @@
-
 <p id="notice"><%= notice %></p>
-<section id="photo">
-<%= image_tag("City_water.jpeg") %>
+<section class="photo">
+  <%= image_tag("City_water.jpeg") %>
 </section>
 <section id="all-events" class="main">
   <h1>All Events</h1>
@@ -44,7 +43,7 @@
     ----------------------------------------------------
   <% end %>
 </section>
-<section id="links" class="main">
+<section class="main links">
   <div class="links">
     <%= link_to 'New Event', new_event_path %>
     <%= link_to 'Users List', users_path %>
