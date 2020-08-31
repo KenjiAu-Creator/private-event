@@ -216,3 +216,19 @@ main .users {
     grid-area: users;
     padding: 50px 30px;
 }
+/* login */
+.body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 100%;
+    text-align: center;
+    grid-template-areas: 
+    "login";
+    align-items: center;
+    justify-items: center;
+}
+.login {
+    grid-area: login;
+    padding-bottom: 150px;
+}

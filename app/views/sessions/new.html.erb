@@ -1,17 +1,19 @@
-<h1>Login</h1>
-
-<% if flash[:danger] %>
-  <p><%= flash[:danger] %></p>
-<% end %>
-
-<%= simple_form_for(:session, url: login_path) do |f| %>
-  <div class="control">
-    <%= f.input :username,
-                wrapper: false,
-                autofocus: true,
-                required: true
-                %>
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<section class="body">
+  <section class="login">
+  <h1>Login</h1>
+  <% if flash[:danger] %>
+    <p><%= flash[:danger] %></p>
+  <% end %>
+  <%= simple_form_for(:session, url: login_path) do |f| %>
+    <div class="control">
+      <%= f.input :username,
+                  wrapper: false,
+                  autofocus: true,
+                  required: true
+                  %>
+    <div class="actions">
+      <%= f.submit "Log in" %>
+    </div>
+  <% end %>
+  </section>
+</section>
