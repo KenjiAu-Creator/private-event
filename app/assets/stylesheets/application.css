@@ -232,3 +232,6 @@ main .users {
     grid-area: login;
     padding-bottom: 150px;
 }
+label {
+    display: block;
+}
