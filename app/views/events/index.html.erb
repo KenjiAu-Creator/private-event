@@ -1,47 +1,52 @@
+
 <p id="notice"><%= notice %></p>
-
-<h1>All Events</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
+<section id="photo">
+<%= image_tag("City_water.jpeg") %>
+</section>
+<section id="all-events" class="main">
+  <h1>All Events</h1>
+  <table>
+    <thead>
       <tr>
-        <td><%= event.title %></td>
-        <td><%= link_to 'Show', event %></td>
-        <% if logged_in? %>
-          <td><%= link_to 'Edit', edit_event_path(event) %></td>
-          <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<h1>Upcoming Events</h1>
-<% @up_events.each do | event | %>
-  <%= link_to "#{event.title}", event %><br>
-  <%= event.location %><br>
-  <%= event.date %><br>
-  -----------------------------------------------------
-<% end %>
-
-<h1>Past Events</h1>
-<% @past_events.each do | event | %>
-  <%= link_to "#{event.title}", event %><br>
-  <%= event.location %><br>
-  <%= event.date %><br>
-  ----------------------------------------------------
-<% end %>
-
-<div class="links">
-  <%= link_to 'New Event', new_event_path %>
-  <%= link_to 'Users List', users_path %>
-</div>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.title %></td>
+          <td><%= link_to 'Show', event %></td>
+          <% if logged_in? %>
+            <td><%= link_to 'Edit', edit_event_path(event) %></td>
+            <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+<section id="upcoming-events" class="main">
+  <h1>Upcoming Events</h1>
+  <% @up_events.each do | event | %>
+    <%= link_to "#{event.title}", event %><br>
+    <%= event.location %><br>
+    <%= event.date %><br>
+    -----------------------------------------------------
+  <% end %>
+</section>
+<section id="past-events" class="main">
+  <h1>Past Events</h1>
+  <% @past_events.each do | event | %>
+    <%= link_to "#{event.title}", event %><br>
+    <%= event.location %><br>
+    <%= event.date %><br>
+    ----------------------------------------------------
+  <% end %>
+</section>
+<section id="links" class="main">
+  <div class="links">
+    <%= link_to 'New Event', new_event_path %>
+    <%= link_to 'Users List', users_path %>
+  </div>
+</section>

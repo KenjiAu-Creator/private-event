@@ -1,3 +1,28 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+main {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: 
+    "all all"
+    "upcoming upcoming"
+    "past past"
+    "link link";
+}
+
+#all-events {
+    grid-area: all;
+}
+
+#upcoming-events {
+    grid-area: upcoming;
+}
+
+#past-events {
+    grid-area: past;
+}
+#links {
+    grid-area: link;
+}

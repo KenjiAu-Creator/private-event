@@ -14,10 +14,6 @@
  //* require_tree .
  * stub eventShow
  */
-body {
-    margin-left: 250px;
-    padding: 10px;
-}
 /* For hamburger menu */
 .menu-wrap {
     position: fixed;
@@ -116,8 +112,6 @@ body {
 
 .menu-wrap .menu {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     visibility: hidden;
@@ -158,4 +152,51 @@ body {
     color: inherit;
     text-decoration: none;
     transition: color 0.4s ease;
+}
+
+body {
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas: 
+    "photo allEvents"
+    "photo upcoming"
+    "photo past"
+    "photo link";
+    align-items: stretch;
+}
+
+#all-events {
+    grid-area: allEvents;
+}
+
+#upcoming-events {
+    grid-area: upcoming;
+}
+
+#past-events {
+    grid-area: past;
+}
+#links {
+    grid-area: link;
+}
+#photo {
+    grid-area: photo;
+    height: 100vh;
+}
+img {
+    width: 100%;
+    height: 100%;
+    border-right: solid black 2px;
+}
+.menu {
+    grid-area: menu;
+}
+.main {
+    padding: 50px 30px;
 }
