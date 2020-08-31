@@ -45,7 +45,9 @@
 </section>
 <section class="main links">
   <div class="links">
-    <%= link_to 'New Event', new_event_path %>
+    <% if logged_in? %>
+      <%= link_to 'New Event', new_event_path %>
+    <% end %>
     <%= link_to 'Users List', users_path %>
   </div>
 </section>
