@@ -1,30 +1,8 @@
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 Private Events Project
 ===========
+This project is a part of The Odin Projects Ruby on Rails curriculum.
 
-This project is intended to run on Ruby 2.5.6. 
+The application features an event creation and management system. The application is built on the PostgreSQL database system.
 
 Features
 -----------
@@ -37,18 +15,17 @@ Features
 Installation
 -----------
 
-Install $project by running:
-
-  install project
+Simply clone the repository and start the project with:
+start index.html
 
 Contribute
 -----------
-
+This is a solo project at this time.
 
 Support
 -----------
-
-If you are having issues, please let us know.
+This project is intended to run on Ruby 2.5.6. 
+If you are having issues, please let me know.
 We have a mailing list located at: kenji.au9@gmail.com
 
 License
